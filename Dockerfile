@@ -33,7 +33,6 @@ WORKDIR /home/coder/project
 # mount. So that they do not lose their data if they delete the container.
 VOLUME [ "/home/coder/project" ]
 
-COPY --from=0 /src/binaries/code-server /usr/local/bin/code-server
 RUN \
  mkdir /tmp/code-server \
  curl -o \
