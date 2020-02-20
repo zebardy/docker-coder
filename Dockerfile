@@ -34,7 +34,7 @@ WORKDIR /home/coder/project
 VOLUME [ "/home/coder/project" ]
 
 RUN \
- mkdir /tmp/code-server \
+ mkdir /tmp/code-server && \
  curl -o \
 	/tmp/code-server.tar.gz -L \
     "https://github.com/cdr/code-server/releases/download/2.1698/code-server2.1698-vsc1.41.1-linux-arm64.tar.gz" && \
