@@ -26,7 +26,8 @@ RUN \
  tar xf \
 	/tmp/code-server.tar.gz -C \
 	/tmp/code-server --strip-components=1 && \
- cp /tmp/code-server/code-server /usr/local/bin/code-server
+ cp /tmp/code-server/code-server /usr/local/bin/code-server && \
+ rm -rf /tmp/code-server
 
 RUN adduser --gecos '' --disabled-password coder && \
 	echo "coder ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/nopasswd
