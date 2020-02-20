@@ -18,6 +18,16 @@ RUN locale-gen en_US.UTF-8
 ENV LC_ALL=en_US.UTF-8 \
 	SHELL=/bin/bash
 
+RUN \
+ mkdir /tmp/code-server && \
+ curl -o \
+	/tmp/code-server.tar.gz -L \
+    "https://github.com/cdr/code-server/releases/download/2.1698/code-server2.1698-vsc1.41.1-linux-arm64.tar.gz" && \
+ tar xf \
+	/tmp/code-server.tar.gz -C \
+	/tmp/code-server --strip-components=1 && \
+ cp /tmp/code-server/code-server /usr/local/bin/code-server
+
 RUN adduser --gecos '' --disabled-password coder && \
 	echo "coder ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/nopasswd
 
@@ -33,15 +43,6 @@ WORKDIR /home/coder/project
 # mount. So that they do not lose their data if they delete the container.
 VOLUME [ "/home/coder/project" ]
 
-RUN \
- mkdir /tmp/code-server && \
- curl -o \
-	/tmp/code-server.tar.gz -L \
-    "https://github.com/cdr/code-server/releases/download/2.1698/code-server2.1698-vsc1.41.1-linux-arm64.tar.gz" && \
- tar xf \
-	/tmp/code-server.tar.gz -C \
-	/tmp/code-server --strip-components=1 && \
- cp /tmp/code-server/code-server /usr/local/bin/code-server
 EXPOSE 8080
 
 ENTRYPOINT ["dumb-init", "code-server", "--host", "0.0.0.0"]
