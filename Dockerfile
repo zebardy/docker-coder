@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y \
 	nodejs \
 	&& rm -rf /var/lib/apt/lists/*
 	
-#RUN ln -s /usr/bin/nodejs /usr/bin/node
+RUN ln -s /usr/bin/node /usr/local/lib/node
 
 RUN locale-gen en_US.UTF-8
 # We cannot use update-locale because docker will not use the env variables
