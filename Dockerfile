@@ -24,12 +24,9 @@ ENV LC_ALL=en_US.UTF-8 \
 RUN \
  mkdir /tmp/code-server && \
  curl -o \
-	/tmp/code-server.tar.gz -L \
-    "https://github.com/cdr/code-server/releases/download/3.4.1/code-server-3.4.1-linux-arm64.tar.gz" && \
- tar xf \
-	/tmp/code-server.tar.gz -C \
-	/tmp/code-server --strip-components=1 && \
- cp /tmp/code-server/code-server /usr/local/bin/code-server && \
+	/tmp/code-server/code-server.deb -L \
+    "https://github.com/cdr/code-server/releases/download/3.4.1/code-server_3.4.1_arm64.deb" && \
+ dpkg -i /tmp/code-server/code-server.deb
  rm -rf /tmp/code-server
 
 RUN adduser --gecos '' --disabled-password coder && \
