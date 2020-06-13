@@ -22,7 +22,7 @@ RUN \
  mkdir /tmp/code-server && \
  curl -o \
 	/tmp/code-server.tar.gz -L \
-    "https://github.com/cdr/code-server/releases/download/2.1698/code-server2.1698-vsc1.41.1-linux-arm64.tar.gz" && \
+    "https://github.com/cdr/code-server/releases/download/3.4.1/code-server-3.4.1-linux-arm64.tar.gz" && \
  tar xf \
 	/tmp/code-server.tar.gz -C \
 	/tmp/code-server --strip-components=1 && \
