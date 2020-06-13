@@ -42,7 +42,7 @@ WORKDIR /home/coder/project
 
 # This ensures we have a volume mounted even if the user forgot to do bind
 # mount. So that they do not lose their data if they delete the container.
-VOLUME [ "/home/coder/project" ]
+#VOLUME [ "/home/coder/project" ]
 
 EXPOSE 8080
 
