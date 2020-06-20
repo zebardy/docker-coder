@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y \
 	curl \
 	wget \
 	nodejs \
+	php \
 	&& rm -rf /var/lib/apt/lists/*
 	
 RUN ln -s /usr/bin/node /usr/local/lib/node
